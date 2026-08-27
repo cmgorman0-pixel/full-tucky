@@ -1,8 +1,9 @@
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import PlaceholderPhoto from "@/components/PlaceholderPhoto";
+import Image from "next/image";
 import HeroVideo from "@/components/HeroVideo";
+import ProductCard from "@/components/ProductCard";
 import { products } from "@/lib/products";
 
 export default function Home() {
@@ -56,12 +57,8 @@ export default function Home() {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {featured.map((p) => (
-            <div key={p.name} className="flex flex-col">
-              <PlaceholderPhoto variant={p.variant} height={280} label="Product photo" />
-              <div className="pt-4">
-                <div className="text-[17px] font-semibold">{p.name}</div>
-                <div className="text-[var(--espresso-2)] mt-1">{p.price}</div>
-              </div>
+            <div key={p.slug} className="flex flex-col">
+              <ProductCard product={p} height={300} />
               <Link href="/shop" className="btn btn-outline mt-3.5 justify-center">
                 View in Shop
               </Link>
@@ -72,7 +69,15 @@ export default function Home() {
 
       {/* ROOTED WHERE IT MATTERS */}
       <section className="grid md:grid-cols-2">
-        <PlaceholderPhoto variant="green" height={520} label="Lifestyle photo" />
+        <div className="relative min-h-[340px] md:min-h-[520px]">
+          <Image
+            src="/images/lifestyle/downtown-walk.jpg"
+            alt="Three friends in Full'Tucky gear crossing a downtown Kentucky street"
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover"
+          />
+        </div>
         <div className="flex flex-col justify-center px-8 md:px-16 py-16 bg-[var(--cream-2)]">
           <div className="eyebrow">Our Roots</div>
           <h2 className="text-[40px] mt-2.5">Rooted Where It Matters</h2>

@@ -1,17 +1,39 @@
 export type Product = {
+  slug: string;
+  /** Descriptive name based on the actual item in the shoot — confirm against the real catalog. */
   name: string;
-  price: string;
-  variant: "amber" | "red" | "espresso" | "green";
   category: string;
+  /** Web-optimized still from the 5/13/2026 shoot. Absent until a real shot exists. */
+  image?: string;
+  /** Gradient placeholder used only when there is no photo yet. */
+  variant?: "amber" | "red" | "espresso" | "green";
 };
 
 export const products: Product[] = [
-  { name: "Heritage Tee", price: "$32.00", variant: "red", category: "Tees" },
-  { name: "Backroad Hoodie", price: "$58.00", variant: "green", category: "Hoodies & Flannels" },
-  { name: "Tailgate Cap", price: "$28.00", variant: "amber", category: "Hats" },
-  { name: "Gravel Road Flannel", price: "$54.00", variant: "red", category: "Hoodies & Flannels" },
-  { name: "Bourbon Trail Tee", price: "$30.00", variant: "espresso", category: "Tees" },
-  { name: "Bluegrass Trucker Hat", price: "$26.00", variant: "amber", category: "Hats" },
-  { name: "Backyard Fire Crewneck", price: "$50.00", variant: "red", category: "Hoodies & Flannels" },
-  { name: "Dirt Road Koozie", price: "$24.00", variant: "green", category: "Accessories" },
+  {
+    slug: "trucker-hat-cream-khaki",
+    name: "Trucker Hat — Cream & Khaki",
+    category: "Hats",
+    image: "/images/products/hat-cream-khaki.jpg",
+  },
+  {
+    slug: "trucker-hat-sage",
+    name: "Trucker Hat — Sage",
+    category: "Hats",
+    image: "/images/products/hat-sage.jpg",
+  },
+  {
+    slug: "hooded-sun-shirt-slate",
+    name: "Hooded Sun Shirt — Slate",
+    category: "Shirts",
+    variant: "espresso",
+  },
+  {
+    slug: "hooded-sun-shirt-stone",
+    name: "Hooded Sun Shirt — Stone",
+    category: "Shirts",
+    variant: "green",
+  },
 ];
+
+export const categories = ["Hats", "Shirts"];

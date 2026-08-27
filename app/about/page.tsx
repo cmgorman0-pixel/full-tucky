@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import PlaceholderPhoto from "@/components/PlaceholderPhoto";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "About | Full'Tucky",
@@ -12,8 +12,19 @@ export default function About() {
     <div className="max-w-[1440px] mx-auto bg-[var(--cream)]">
       <Header active="/about" />
 
-      <div className="relative">
-        <PlaceholderPhoto variant="green" height={420} label="Photo" />
+      <div className="relative h-[420px]">
+        <Image
+          src="/images/lifestyle/downtown-group.jpg"
+          alt="Three friends in Full'Tucky gear walking through downtown"
+          fill
+          sizes="100vw"
+          priority
+          className="object-cover"
+        />
+        <div
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(to top, rgba(20,14,10,.72), rgba(20,14,10,.32))" }}
+        />
         <div className="absolute inset-0 flex items-center justify-center text-center px-6">
           <div>
             <div className="eyebrow text-[var(--cream-2)]">Our Story</div>
