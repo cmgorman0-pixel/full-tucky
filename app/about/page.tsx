@@ -4,7 +4,9 @@ import Footer from "@/components/Footer";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "About | Full'Tucky",
+  title: "About",
+  description:
+    "Full'Tucky was born out of pride in where we're from. Built from the same dirt roads and Friday night lights that raised us.",
 };
 
 export default function About() {

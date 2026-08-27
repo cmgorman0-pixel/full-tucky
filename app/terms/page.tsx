@@ -3,7 +3,7 @@ import LegalPage from "@/components/LegalPage";
 import { LEGAL_ENTITY, CONTACT_EMAIL, MAILING_ADDRESS } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions | Full'Tucky",
+  title: "Terms & Conditions",
   description:
     "The terms that govern use of the Full'Tucky website, based in Louisville, Kentucky.",
 };

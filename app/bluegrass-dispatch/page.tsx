@@ -4,7 +4,9 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "The Bluegrass Dispatch | Full'Tucky",
+  title: "The Bluegrass Dispatch",
+  description:
+    "Stories worth telling. Miles worth driving. Trail tips, tailgate lore, and stories from the road — coming soon.",
 };
 
 export default function BluegrassDispatch() {

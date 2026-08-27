@@ -5,7 +5,9 @@ import ProductCard from "@/components/ProductCard";
 import { products, categories } from "@/lib/products";
 
 export const metadata: Metadata = {
-  title: "Shop | Full'Tucky",
+  title: "Shop",
+  description:
+    "An early look at the Full'Tucky lineup — Kentucky-built hats and hooded sun shirts from Louisville.",
 };
 
 export default function Shop() {

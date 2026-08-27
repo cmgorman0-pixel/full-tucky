@@ -49,7 +49,7 @@ export default function Header({
       </nav>
 
       <button
-        className="md:hidden flex flex-col justify-center gap-1.5 w-8 h-8"
+        className="md:hidden flex flex-col justify-center items-start gap-1.5 w-11 h-11 -ml-1"
         aria-label="Toggle menu"
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
@@ -124,7 +124,7 @@ export default function Header({
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="text-[13px] font-semibold uppercase tracking-wide py-3 border-b last:border-b-0"
+              className="text-[13px] font-semibold uppercase tracking-wide py-4 border-b last:border-b-0"
               style={{
                 color: active === link.href ? activeColor : idleColor,
                 borderColor: overlay ? "oklch(35% .02 50)" : "var(--line)",

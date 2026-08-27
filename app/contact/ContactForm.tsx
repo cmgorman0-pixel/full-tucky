@@ -23,7 +23,7 @@ export default function ContactForm() {
         setSubmitted(true);
       }}
     >
-      <div className="grid grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
           <label className="block text-[12.5px] font-bold uppercase tracking-wide text-[var(--espresso-2)] mb-2">
             First Name
@@ -37,7 +37,7 @@ export default function ContactForm() {
           <input className="w-full px-3.5 py-3 border-[1.5px] border-[var(--line)] bg-[var(--cream-2)] text-sm focus:outline-none focus:border-[var(--amber)]" type="text" />
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div>
           <label className="block text-[12.5px] font-bold uppercase tracking-wide text-[var(--espresso-2)] mb-2">
             Email

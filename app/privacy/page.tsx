@@ -3,7 +3,7 @@ import LegalPage from "@/components/LegalPage";
 import { LEGAL_ENTITY, CONTACT_EMAIL, MAILING_ADDRESS } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Full'Tucky",
+  title: "Privacy Policy",
   description:
     "How Full'Tucky handles the information you share through this website.",
 };

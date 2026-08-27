@@ -4,7 +4,9 @@ import Footer from "@/components/Footer";
 import ContactForm from "./ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact | Full'Tucky",
+  title: "Contact",
+  description:
+    "Questions about an order, wholesale, or just want to talk Kentucky? Get in touch with Full'Tucky in Louisville, KY.",
 };
 
 export default function Contact() {
