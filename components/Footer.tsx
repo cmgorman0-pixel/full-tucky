@@ -24,6 +24,8 @@ export default function Footer() {
             <Link href="/shop" className="text-[var(--cream-2)]">Shop</Link>
             <Link href="/bluegrass-dispatch" className="text-[var(--cream-2)]">Bluegrass Dispatch</Link>
             <Link href="/contact" className="text-[var(--cream-2)]">Contact</Link>
+            <Link href="/terms" className="text-[var(--cream-2)]">Terms &amp; Conditions</Link>
+            <Link href="/privacy" className="text-[var(--cream-2)]">Privacy Policy</Link>
           </div>
         </div>
         <div>
