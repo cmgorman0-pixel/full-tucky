@@ -2,6 +2,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PlaceholderPhoto from "@/components/PlaceholderPhoto";
+import HeroVideo from "@/components/HeroVideo";
 import { products } from "@/lib/products";
 
 export default function Home() {
@@ -11,16 +12,7 @@ export default function Home() {
     <div className="max-w-[1440px] mx-auto bg-[var(--cream)]">
       {/* HERO */}
       <section className="relative min-h-[92vh] flex flex-col overflow-hidden bg-gradient-to-br from-[oklch(62%_.14_60)] to-[oklch(28%_.05_40)]">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/video/hero-campfire-1080.mp4" type="video/mp4" />
-        </video>
+        <HeroVideo />
         <div
           className="absolute inset-0"
           style={{
