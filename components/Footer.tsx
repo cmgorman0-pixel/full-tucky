@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-[1440px] mx-auto">
         <div>
           <Image
-            src="/images/fulltucky-logo-black.jpg"
+            src="/images/fulltucky-logo-light.png"
             alt="Full'Tucky"
             width={58}
             height={58}

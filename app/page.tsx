@@ -9,27 +9,29 @@ export default function Home() {
 
   return (
     <div className="max-w-[1440px] mx-auto bg-[var(--cream)]">
-      <Header active="/" />
-
       {/* HERO */}
-      <section className="relative h-[560px] flex items-end overflow-hidden bg-gradient-to-br from-[oklch(62%_.14_60)] to-[oklch(28%_.05_40)]">
+      <section className="relative min-h-[92vh] flex flex-col overflow-hidden bg-gradient-to-br from-[oklch(62%_.14_60)] to-[oklch(28%_.05_40)]">
         <video
           autoPlay
           loop
           muted
           playsInline
+          preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="/video/hero-campfire.mp4" type="video/mp4" />
+          <source src="/video/hero-campfire-1080.mp4" type="video/mp4" />
         </video>
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to top, rgba(20,14,10,.68), rgba(20,14,10,.1) 55%, rgba(20,14,10,.42))",
+              "linear-gradient(to top, rgba(20,14,10,.72), rgba(20,14,10,.08) 55%, rgba(20,14,10,.5))",
           }}
         />
-        <div className="relative z-10 px-8 md:px-14 py-16 max-w-2xl">
+
+        <Header active="/" overlay />
+
+        <div className="relative z-10 mt-auto px-8 md:px-14 pb-16 max-w-2xl">
           <div className="eyebrow text-[var(--cream-2)]">Louisville, KY</div>
           <h1 className="text-5xl md:text-6xl leading-[0.98] text-[var(--cream)] mt-2.5">
             IT&apos;S NOT JUST SOUTHERN.
