@@ -1,6 +1,7 @@
 import Image from "next/image";
 import PlaceholderPhoto from "@/components/PlaceholderPhoto";
-import type { Product } from "@/lib/products";
+import BuyButton from "@/components/BuyButton";
+import { formatPrice, type Product } from "@/lib/products";
 
 export default function ProductCard({
   product,
@@ -30,8 +31,13 @@ export default function ProductCard({
       )}
       <div className="pt-4">
         <div className="text-[17px] font-semibold">{product.name}</div>
-        <div className="text-[var(--espresso-2)] mt-1 text-sm">Pricing coming soon</div>
+        {typeof product.priceCents === "number" && (
+          <div className="text-[var(--espresso-2)] mt-1">
+            {formatPrice(product.priceCents)}
+          </div>
+        )}
       </div>
+      <BuyButton product={product} />
     </div>
   );
 }

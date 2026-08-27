@@ -57,12 +57,7 @@ export default function Home() {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {featured.map((p) => (
-            <div key={p.slug} className="flex flex-col">
-              <ProductCard product={p} height={300} />
-              <Link href="/shop" className="btn btn-outline mt-3.5 justify-center">
-                View in Shop
-              </Link>
-            </div>
+            <ProductCard key={p.slug} product={p} height={300} />
           ))}
         </div>
       </section>
