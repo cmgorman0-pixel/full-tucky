@@ -26,13 +26,13 @@ export const products: Product[] = [
     slug: "hooded-sun-shirt-slate",
     name: "Hooded Sun Shirt — Slate",
     category: "Shirts",
-    variant: "espresso",
+    image: "/images/products/shirt-slate.jpg",
   },
   {
     slug: "hooded-sun-shirt-stone",
     name: "Hooded Sun Shirt — Stone",
     category: "Shirts",
-    variant: "green",
+    image: "/images/products/shirt-stone.jpg",
   },
 ];
 
