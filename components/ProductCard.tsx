@@ -6,38 +6,45 @@ import type { CatalogItem } from "@/lib/catalog";
 
 export default function ProductCard({
   product,
-  height = 280,
+  priority = false,
 }: {
   product: CatalogItem;
-  height?: number;
+  priority?: boolean;
 }) {
   return (
-    <div className="flex flex-col">
-      {product.image ? (
-        <div className="relative w-full overflow-hidden" style={{ height }}>
+    <div className="group flex flex-col">
+      <div className="relative w-full aspect-[4/5] overflow-hidden bg-[var(--cream-2)]">
+        {product.image ? (
           <Image
             src={product.image}
             alt={product.name}
             fill
-            sizes="(max-width: 768px) 50vw, 25vw"
-            className="object-cover"
+            priority={priority}
+            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 30vw"
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
           />
-        </div>
-      ) : (
-        <PlaceholderPhoto
-          variant={product.variant ?? "espresso"}
-          height={height}
-          label="Photo coming"
-        />
-      )}
-      <div className="pt-4">
-        <div className="text-[17px] font-semibold">{product.name}</div>
-        {typeof product.priceCents === "number" && (
-          <div className="text-[var(--espresso-2)] mt-1">
-            {formatPrice(product.priceCents)}
-          </div>
+        ) : (
+          <PlaceholderPhoto variant={product.variant ?? "espresso"} height={480} label="Photo coming" />
         )}
       </div>
+
+      <div className="pt-5 flex items-baseline justify-between gap-3">
+        <h3 className="text-[15px] font-semibold tracking-tight text-[var(--espresso)] font-[family-name:var(--font-body)]">
+          {product.name}
+        </h3>
+        {typeof product.priceCents === "number" && (
+          <span className="text-[15px] text-[var(--espresso-2)] whitespace-nowrap">
+            {formatPrice(product.priceCents)}
+          </span>
+        )}
+      </div>
+
+      {product.category && (
+        <div className="mt-1 text-[11px] uppercase tracking-[0.16em] text-[var(--espresso-2)] opacity-70">
+          {product.category}
+        </div>
+      )}
+
       <BuyButton product={product} />
     </div>
   );
