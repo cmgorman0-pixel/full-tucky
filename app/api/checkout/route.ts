@@ -22,11 +22,65 @@ export async function POST(request: Request) {
     );
   }
 
-  let body: { slug?: string; size?: string; quantity?: number };
+  let body: {
+    slug?: string;
+    size?: string;
+    quantity?: number;
+    priceId?: string;
+  };
   try {
     body = await request.json();
   } catch {
     return NextResponse.json({ error: "bad_request" }, { status: 400 });
+  }
+
+  const quantity = Math.min(Math.max(Math.trunc(body.quantity ?? 1), 1), 10);
+  const origin = request.headers.get("origin") ?? SITE_URL;
+  const stripe = new Stripe(secret);
+
+  const sharedOptions = {
+    shipping_address_collection: {
+      allowed_countries: [...SHIP_TO_COUNTRIES],
+    },
+    ...(typeof SHIPPING_FLAT_CENTS === "number"
+      ? {
+          shipping_options: [
+            {
+              shipping_rate_data: {
+                type: "fixed_amount" as const,
+                display_name:
+                  SHIPPING_FLAT_CENTS === 0 ? "Free shipping" : "Standard shipping",
+                fixed_amount: {
+                  amount: SHIPPING_FLAT_CENTS,
+                  currency: "usd",
+                },
+              },
+            },
+          ],
+        }
+      : {}),
+    automatic_tax: { enabled: AUTOMATIC_TAX_ENABLED },
+    success_url: `${origin}/shop/success?session_id={CHECKOUT_SESSION_ID}`,
+    cancel_url: `${origin}/shop`,
+  };
+
+  // Catalog managed in Stripe: charge the real price object by id, so the
+  // amount always comes from Stripe rather than from anything we send.
+  if (body.priceId) {
+    try {
+      const session = await stripe.checkout.sessions.create({
+        mode: "payment",
+        line_items: [{ price: body.priceId, quantity }],
+        ...(body.size
+          ? { metadata: { size: body.size }, payment_intent_data: { metadata: { size: body.size } } }
+          : {}),
+        ...sharedOptions,
+      });
+      return NextResponse.json({ url: session.url });
+    } catch (err) {
+      console.error("Stripe checkout session failed (priceId):", err);
+      return NextResponse.json({ error: "stripe_error" }, { status: 502 });
+    }
   }
 
   const product = body.slug ? getProduct(body.slug) : undefined;
@@ -46,10 +100,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "size_required" }, { status: 400 });
   }
 
-  const quantity = Math.min(Math.max(Math.trunc(body.quantity ?? 1), 1), 10);
-  const origin = request.headers.get("origin") ?? SITE_URL;
-  const stripe = new Stripe(secret);
-
   try {
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
@@ -68,29 +118,7 @@ export async function POST(request: Request) {
           },
         },
       ],
-      shipping_address_collection: {
-        allowed_countries: [...SHIP_TO_COUNTRIES],
-      },
-      ...(typeof SHIPPING_FLAT_CENTS === "number"
-        ? {
-            shipping_options: [
-              {
-                shipping_rate_data: {
-                  type: "fixed_amount" as const,
-                  display_name:
-                    SHIPPING_FLAT_CENTS === 0 ? "Free shipping" : "Standard shipping",
-                  fixed_amount: {
-                    amount: SHIPPING_FLAT_CENTS,
-                    currency: "usd",
-                  },
-                },
-              },
-            ],
-          }
-        : {}),
-      automatic_tax: { enabled: AUTOMATIC_TAX_ENABLED },
-      success_url: `${origin}/shop/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${origin}/shop`,
+      ...sharedOptions,
     });
 
     return NextResponse.json({ url: session.url });

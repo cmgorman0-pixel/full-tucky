@@ -1,13 +1,14 @@
 import Image from "next/image";
 import PlaceholderPhoto from "@/components/PlaceholderPhoto";
 import BuyButton from "@/components/BuyButton";
-import { formatPrice, type Product } from "@/lib/products";
+import { formatPrice } from "@/lib/products";
+import type { CatalogItem } from "@/lib/catalog";
 
 export default function ProductCard({
   product,
   height = 280,
 }: {
-  product: Product;
+  product: CatalogItem;
   height?: number;
 }) {
   return (

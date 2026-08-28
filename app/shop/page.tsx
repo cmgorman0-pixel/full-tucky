@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
-import { products, categories } from "@/lib/products";
+import { getCatalog, categoriesFrom } from "@/lib/catalog";
 
 export const metadata: Metadata = {
   title: "Shop",
@@ -10,7 +10,14 @@ export const metadata: Metadata = {
     "An early look at the Full'Tucky lineup — Kentucky-built hats and hooded sun shirts from Louisville.",
 };
 
-export default function Shop() {
+// Pick up new products added in Stripe without a redeploy.
+export const revalidate = 60;
+
+export default async function Shop() {
+  const { items } = await getCatalog();
+  const categories = categoriesFrom(items);
+  const anyPriced = items.some((i) => typeof i.priceCents === "number");
+
   return (
     <div className="max-w-[1440px] mx-auto bg-[var(--cream)]">
       <Header active="/shop" />
@@ -19,8 +26,9 @@ export default function Shop() {
         <div className="eyebrow">Shop</div>
         <h1 className="text-5xl mt-1.5">The Full Collection</h1>
         <p className="text-[var(--espresso-2)] mt-3 max-w-xl">
-          An early look at the lineup. Pricing and online checkout aren&apos;t live yet
-          &mdash; more styles and photography on the way.
+          {anyPriced
+            ? "Free shipping on every order."
+            : "An early look at the lineup. Pricing and online checkout aren't live yet — more styles and photography on the way."}
         </p>
       </div>
 
@@ -29,7 +37,7 @@ export default function Shop() {
           <div className="font-bold text-[13px] uppercase tracking-wide mb-2.5">Categories</div>
           <div className="flex flex-col text-sm">
             {categories.map((c) => {
-              const count = products.filter((p) => p.category === c).length;
+              const count = items.filter((p) => p.category === c).length;
               return (
                 <div
                   key={c}
@@ -44,10 +52,10 @@ export default function Shop() {
 
         <div>
           <div className="text-[13.5px] text-[var(--espresso-2)] mb-6">
-            Showing {products.length} styles
+            Showing {items.length} {items.length === 1 ? "style" : "styles"}
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-7">
-            {products.map((p) => (
+            {items.map((p) => (
               <ProductCard key={p.slug} product={p} height={300} />
             ))}
           </div>

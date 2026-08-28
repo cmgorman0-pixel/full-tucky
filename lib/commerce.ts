@@ -19,8 +19,11 @@ export const SHIPPING_FLAT_CENTS: number | undefined = 0;
 export const SHIP_TO_COUNTRIES = ["US"] as const;
 
 /**
- * Kentucky sales tax is NOT calculated automatically. Turning this on requires
- * enabling Stripe Tax in the Stripe dashboard (a paid add-on) and registering
- * the states you collect in.
+ * Sales tax is deliberately OFF for launch (decided 2026-08-27) — no tax is
+ * calculated or collected, so the customer's total equals the product price.
+ *
+ * Turning this on requires enabling Stripe Tax in the dashboard (a paid add-on),
+ * setting an origin address, assigning product tax codes, and entering the
+ * registrations for each state you collect in.
  */
 export const AUTOMATIC_TAX_ENABLED = false;

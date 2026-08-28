@@ -4,10 +4,14 @@ import Footer from "@/components/Footer";
 import Image from "next/image";
 import HeroVideo from "@/components/HeroVideo";
 import ProductCard from "@/components/ProductCard";
-import { products } from "@/lib/products";
+import { getCatalog } from "@/lib/catalog";
 
-export default function Home() {
-  const featured = products.slice(0, 4);
+// Pick up new products added in Stripe without a redeploy.
+export const revalidate = 60;
+
+export default async function Home() {
+  const { items } = await getCatalog();
+  const featured = items.slice(0, 4);
 
   return (
     <div className="max-w-[1440px] mx-auto bg-[var(--cream)]">

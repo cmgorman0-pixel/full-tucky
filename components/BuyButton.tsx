@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import type { Product } from "@/lib/products";
+import type { CatalogItem } from "@/lib/catalog";
 
-export default function BuyButton({ product }: { product: Product }) {
+export default function BuyButton({ product }: { product: CatalogItem }) {
   const [size, setSize] = useState(product.sizes?.[2] ?? "");
   const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
   const [message, setMessage] = useState("");
@@ -24,7 +24,12 @@ export default function BuyButton({ product }: { product: Product }) {
       const res = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ slug: product.slug, size, quantity: 1 }),
+        body: JSON.stringify({
+          slug: product.slug,
+          priceId: product.priceId,
+          size,
+          quantity: 1,
+        }),
       });
       const data = await res.json();
 
