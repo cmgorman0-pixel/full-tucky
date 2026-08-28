@@ -53,15 +53,23 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* LATEST PRODUCTS */}
-      <section className="px-8 md:px-14 pt-22 pb-24">
-        <div className="text-center mb-12">
-          <div className="eyebrow">New Arrivals</div>
-          <h2 className="text-4xl mt-2">Latest Products</h2>
+      {/* FEATURED */}
+      <section className="px-8 md:px-14 pt-24 pb-28">
+        <div className="flex flex-wrap items-end justify-between gap-4 mb-14">
+          <div>
+            <div className="eyebrow">New Arrivals</div>
+            <h2 className="text-[42px] mt-2 leading-none">The Latest</h2>
+          </div>
+          <Link
+            href="/shop"
+            className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-[var(--espresso)] border-b-2 border-[var(--amber)] pb-1 hover:text-[var(--barnred)]"
+          >
+            See the full collection
+          </Link>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {featured.map((p) => (
-            <ProductCard key={p.slug} product={p} />
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-14 md:gap-x-10">
+          {featured.map((p, i) => (
+            <ProductCard key={p.slug} product={p} priority={i < 3} />
           ))}
         </div>
       </section>
@@ -94,28 +102,67 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* LIVE FULL BE KENTUCKY */}
-      <section className="bg-[var(--espresso)] text-[var(--cream)] px-8 md:px-14 py-24 text-center">
-        <h2 className="text-[46px]">LIVE FULL. BE KENTUCKY.</h2>
-        <p className="text-base leading-relaxed text-[var(--cream-2)] max-w-xl mx-auto mt-5">
-          This isn&apos;t for everyone &mdash; and that&apos;s the point. It&apos;s for the ones
-          who take pride in where they&apos;re from, who live full and stand a little taller
-          because of it. Full&apos;Tucky is more than apparel. It&apos;s a mindset. A reminder
-          that pride, grit, and good times still mean something. Welcome to the movement.
-        </p>
-        <Link href="/about" className="btn btn-cream mt-8 inline-flex">
-          Read Our Story
-        </Link>
+      {/* LIVE FULL BE KENTUCKY — full-bleed landscape band.
+          Swap this image for a licensed Kentucky landscape (rolling hills, horse
+          fence line, bourbon barrel run) when one is available; the layout and
+          scrim are already sized for a wide horizon shot. */}
+      <section className="relative min-h-[520px] md:min-h-[620px] flex items-center overflow-hidden">
+        <Image
+          src="/images/lifestyle/statement-band.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to right, rgba(20,14,10,.86), rgba(20,14,10,.55) 55%, rgba(20,14,10,.35))",
+          }}
+        />
+        <div className="relative z-10 px-8 md:px-14 py-24 max-w-2xl">
+          <h2 className="text-[46px] md:text-[58px] leading-[0.95] text-[var(--cream)]">
+            LIVE FULL.
+            <br />
+            BE KENTUCKY.
+          </h2>
+          <p className="text-base leading-relaxed text-[var(--cream-2)] mt-6 max-w-lg">
+            This isn&apos;t for everyone &mdash; and that&apos;s the point. It&apos;s for the ones
+            who take pride in where they&apos;re from, who live full and stand a little taller
+            because of it. Full&apos;Tucky is more than apparel. It&apos;s a mindset.
+          </p>
+          <Link href="/about" className="btn btn-cream mt-8 inline-flex">
+            Read Our Story
+          </Link>
+        </div>
+      </section>
+
+      {/* DISPATCH TEASER */}
+      <section className="px-8 md:px-14 py-20 border-b border-[var(--line)]">
+        <div className="max-w-3xl">
+          <div className="eyebrow">The Bluegrass Dispatch</div>
+          <h2 className="text-[36px] mt-2.5 leading-tight">
+            Stories Worth Telling. Miles Worth Driving.
+          </h2>
+          <p className="text-[15.5px] leading-relaxed text-[var(--espresso-2)] mt-4 max-w-xl">
+            Trail tips, tailgate lore, bourbon runs, and backroad finds &mdash; from the people
+            who make Kentucky what it is.
+          </p>
+          <Link href="/bluegrass-dispatch" className="btn btn-outline mt-7 inline-flex">
+            Read the Dispatch
+          </Link>
+        </div>
       </section>
 
       {/* CONTACT TEASER */}
-      <section className="px-8 md:px-14 py-20 text-center">
+      <section className="px-8 md:px-14 py-24 text-center">
         <div className="eyebrow">Get In Touch</div>
-        <h2 className="text-4xl mt-2">We&apos;d Love To Hear From You</h2>
-        <p className="text-[var(--espresso-2)] mt-3">
+        <h2 className="text-[36px] mt-2.5">We&apos;d Love To Hear From You</h2>
+        <p className="text-[var(--espresso-2)] mt-3.5 max-w-md mx-auto leading-relaxed">
           Questions about an order, wholesale, or just want to talk Kentucky &mdash; reach out.
         </p>
-        <Link href="/contact" className="btn mt-5 inline-flex">
+        <Link href="/contact" className="btn mt-7 inline-flex">
           Go to Contact
         </Link>
       </section>
