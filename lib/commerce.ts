@@ -4,11 +4,16 @@
  */
 
 /**
- * Flat shipping charged at checkout, in CENTS. Leave undefined and Stripe will
- * collect a shipping address but add no shipping line — decide this before launch
- * so shipping isn't silently free.
+ * Flat shipping charged at checkout, in CENTS.
+ *
+ * Set to 0 — Full'Tucky ships free, with the cost built into product prices.
+ * Because of that, product prices must absorb roughly $6 per order (typical
+ * USPS Ground Advantage for a hat or shirt) or every sale eats that margin.
+ *
+ * Set to undefined to omit the shipping line entirely; any positive number
+ * charges that amount.
  */
-export const SHIPPING_FLAT_CENTS: number | undefined = undefined;
+export const SHIPPING_FLAT_CENTS: number | undefined = 0;
 
 /** Countries the store will ship to. */
 export const SHIP_TO_COUNTRIES = ["US"] as const;

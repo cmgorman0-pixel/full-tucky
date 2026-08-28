@@ -77,7 +77,8 @@ export async function POST(request: Request) {
               {
                 shipping_rate_data: {
                   type: "fixed_amount" as const,
-                  display_name: "Standard shipping",
+                  display_name:
+                    SHIPPING_FLAT_CENTS === 0 ? "Free shipping" : "Standard shipping",
                   fixed_amount: {
                     amount: SHIPPING_FLAT_CENTS,
                     currency: "usd",
