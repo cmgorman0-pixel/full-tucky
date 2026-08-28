@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactForm from "./ContactForm";
+import { CONTACT_EMAIL, ORDERS_EMAIL, CONTACT_PHONE, SITE_LOCATION } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -23,12 +25,22 @@ export default function Contact() {
         <ContactForm />
 
         <div>
-          <div className="eyebrow">Contact</div>
+          <div className="eyebrow">Reach Us Directly</div>
           <div className="mt-4 text-[15px] leading-loose">
-            <div>[YOUR PHONE NUMBER]</div>
-            <div>[YOUR EMAIL ADDRESS]</div>
-            <div>Louisville, KY</div>
+            <div>
+              <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+            </div>
+            <div>{CONTACT_PHONE}</div>
+            <div>{SITE_LOCATION}</div>
           </div>
+
+          <div className="eyebrow mt-10">Orders &amp; Returns</div>
+          <p className="mt-4 text-[14.5px] leading-relaxed text-[var(--espresso-2)]">
+            For anything about an existing order, email{" "}
+            <a href={`mailto:${ORDERS_EMAIL}`}>{ORDERS_EMAIL}</a>. Our{" "}
+            <Link href="/returns">returns and exchanges</Link> policy covers the details, and
+            the <Link href="/faq">FAQ</Link> answers most of the rest.
+          </p>
         </div>
       </div>
 

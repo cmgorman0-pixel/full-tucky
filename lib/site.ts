@@ -10,8 +10,18 @@ export const LEGAL_ENTITY = "Full Tucky LLC";
 export const SITE_TAGLINE = "Beyond Southern";
 export const SITE_LOCATION = "Louisville, KY";
 
-/** Placeholder until real contact details are confirmed for public display. */
-export const CONTACT_EMAIL = "[YOUR EMAIL ADDRESS]";
+export const CONTACT_EMAIL = "sales@fulltucky.com";
+
+/**
+ * Order, return, and exchange enquiries.
+ *
+ * Points at sales@ because that mailbox is confirmed live. Switch to
+ * orders@fulltucky.com ONLY once that mailbox actually exists — this address is
+ * printed on the returns and shipping pages, so a dead alias means customers
+ * emailing about returns get nothing back.
+ */
+export const ORDERS_EMAIL = "sales@fulltucky.com";
+
 export const CONTACT_PHONE = "[YOUR PHONE NUMBER]";
 export const MAILING_ADDRESS = "[YOUR BUSINESS MAILING ADDRESS]";
 
