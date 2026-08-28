@@ -27,9 +27,11 @@ export default function Header({
   return (
     <header
       className={
+        // Grid on desktop so the logo is truly centred regardless of how wide the
+        // nav is; flex on mobile where the logo is absolutely positioned instead.
         overlay
-          ? "relative z-20 flex items-center justify-between px-6 md:px-14 py-5"
-          : "relative flex items-center justify-between px-6 md:px-14 py-5 border-b border-[var(--line)]"
+          ? "relative z-20 flex md:grid md:grid-cols-3 items-center justify-between px-6 md:px-14 py-5"
+          : "relative flex md:grid md:grid-cols-3 items-center justify-between px-6 md:px-14 py-5 border-b border-[var(--line)]"
       }
     >
       <nav className="hidden md:flex items-center gap-8">
@@ -74,7 +76,10 @@ export default function Header({
         />
       </button>
 
-      <Link href="/" className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0">
+      <Link
+        href="/"
+        className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 md:justify-self-center"
+      >
         <Image
           src={overlay ? "/images/fulltucky-logo-light.png" : "/images/fulltucky-logo-dark.png"}
           alt="Full'Tucky"
@@ -85,31 +90,11 @@ export default function Header({
         />
       </Link>
 
-      <div className="hidden md:flex items-center gap-5">
-        <span
-          className="text-[13px] font-semibold uppercase tracking-wide"
-          style={{
-            color: idleColor,
-            textShadow: overlay ? "0 1px 12px rgba(20,14,10,.55)" : undefined,
-          }}
-        >
-          Sign In
-        </span>
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          style={{ color: idleColor }}
-        >
-          <path d="M6 8h12l-1 12H7L6 8Z" />
-          <path d="M9 8V6a3 3 0 0 1 6 0v2" />
-        </svg>
-      </div>
+      {/* Sign In and the cart icon lived here. Pulled deliberately: there are no
+          accounts and no cart, so they were dead affordances visitors would tap.
+          Bring Sign In back with the Bluegrass Dispatch forum, and the cart when
+          checkout moves off Stripe's hosted page. */}
+      <div className="hidden md:block" aria-hidden="true" />
 
       {open && (
         <div
@@ -133,12 +118,6 @@ export default function Header({
               {link.label}
             </Link>
           ))}
-          <span
-            className="text-[13px] font-semibold uppercase tracking-wide py-3"
-            style={{ color: idleColor }}
-          >
-            Sign In
-          </span>
         </div>
       )}
     </header>
