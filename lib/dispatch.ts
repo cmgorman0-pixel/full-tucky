@@ -34,6 +34,22 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    slug: "behind-the-shoot-golden-hour",
+    title: "Behind the Shoot: Golden Hour, One Fire, Forty-One Clips",
+    category: "Field Notes",
+    date: "2026-08-28",
+    excerpt:
+      "Main street in the late light, then a backyard fire until dark. A look at the day the first Full'Tucky footage got made.",
+    image: "/images/hero-poster.jpg",
+    body: [
+      "The first real Full'Tucky shoot happened in May, and it ran the way most good Kentucky evenings do — start downtown while the light is still good, end around a fire once it isn't.",
+      "The afternoon half was simple: friends walking a main street in [TOWN], crossing at the light, storefronts and brick behind them, nobody doing anything special. Sun shirts in slate and stone, trucker hats in cream and sage. The kind of footage that only works if the people in it actually know each other, which is why we didn't hire anybody who didn't.",
+      "By early evening we moved to a backyard fire pit and stayed until the light went. Adirondack chairs, a cooler doing double duty as a seat, somebody always getting up to move a log around. That stretch is where the footage got good — nobody performing, just a group of people who'd been at it long enough to forget the camera was running.",
+      "It was shot on a cinema camera in Canon RAW, which is a technical way of saying the files are enormous and the color holds up. Forty-one clips came out of that evening, a little over ninety minutes of footage and roughly two hundred gigabytes of it. Most of what you see across this site — the hero on the homepage, the shots on the shop page, the product photos — came from that one night's work.",
+      "There's more in there than we've used. The full edit is still in progress, and we'll put the good stuff up here as it comes back.",
+    ],
+  },
+  {
     slug: "rooted-where-it-matters",
     title: "Rooted Where It Matters",
     category: "Beyond Southern Stories",
