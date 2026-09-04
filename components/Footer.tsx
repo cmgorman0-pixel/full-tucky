@@ -21,33 +21,33 @@ export default function Footer() {
 
         <div>
           <div className="eyebrow text-[oklch(70%_.02_80)]">Explore</div>
-          <div className="flex flex-col gap-2.5 mt-4 text-sm">
-            <Link href="/shop" className="text-[var(--cream-2)]">Shop</Link>
-            <Link href="/about" className="text-[var(--cream-2)]">About</Link>
-            <Link href="/bluegrass-dispatch" className="text-[var(--cream-2)]">Bluegrass Dispatch</Link>
-            <Link href="/contact" className="text-[var(--cream-2)]">Contact</Link>
+          <div className="flex flex-col mt-2 text-sm">
+            <Link href="/shop" className="text-[var(--cream-2)] py-3">Shop</Link>
+            <Link href="/about" className="text-[var(--cream-2)] py-3">About</Link>
+            <Link href="/bluegrass-dispatch" className="text-[var(--cream-2)] py-3">Bluegrass Dispatch</Link>
+            <Link href="/contact" className="text-[var(--cream-2)] py-3">Contact</Link>
           </div>
         </div>
 
         <div>
           <div className="eyebrow text-[oklch(70%_.02_80)]">Customer Care</div>
-          <div className="flex flex-col gap-2.5 mt-4 text-sm">
-            <Link href="/faq" className="text-[var(--cream-2)]">FAQ</Link>
-            <Link href="/shipping" className="text-[var(--cream-2)]">Shipping</Link>
-            <Link href="/returns" className="text-[var(--cream-2)]">Returns &amp; Exchanges</Link>
-            <Link href="/terms" className="text-[var(--cream-2)]">Terms &amp; Conditions</Link>
-            <Link href="/privacy" className="text-[var(--cream-2)]">Privacy Policy</Link>
+          <div className="flex flex-col mt-2 text-sm">
+            <Link href="/faq" className="text-[var(--cream-2)] py-3">FAQ</Link>
+            <Link href="/shipping" className="text-[var(--cream-2)] py-3">Shipping</Link>
+            <Link href="/returns" className="text-[var(--cream-2)] py-3">Returns &amp; Exchanges</Link>
+            <Link href="/terms" className="text-[var(--cream-2)] py-3">Terms &amp; Conditions</Link>
+            <Link href="/privacy" className="text-[var(--cream-2)] py-3">Privacy Policy</Link>
           </div>
         </div>
 
         <div>
           <div className="eyebrow text-[oklch(70%_.02_80)]">Get In Touch</div>
           <div className="flex flex-col gap-2.5 mt-4 text-sm text-[var(--cream-2)]">
-            <a href={`mailto:${ORDERS_EMAIL}`} className="text-[var(--cream-2)]">
+            <a href={`mailto:${ORDERS_EMAIL}`} className="text-[var(--cream-2)] py-3">
               {ORDERS_EMAIL}
             </a>
             {CONTACT_EMAIL !== ORDERS_EMAIL && (
-              <a href={`mailto:${CONTACT_EMAIL}`} className="text-[var(--cream-2)]">
+              <a href={`mailto:${CONTACT_EMAIL}`} className="text-[var(--cream-2)] py-3">
                 {CONTACT_EMAIL}
               </a>
             )}

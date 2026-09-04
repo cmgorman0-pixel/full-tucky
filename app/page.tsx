@@ -62,7 +62,7 @@ export default async function Home() {
           </div>
           <Link
             href="/shop"
-            className="text-[12.5px] font-semibold uppercase tracking-[0.14em] text-[var(--espresso)] border-b-2 border-[var(--amber)] pb-1 hover:text-[var(--barnred)]"
+            className="inline-block py-2 text-[12.5px] font-semibold uppercase tracking-[0.14em] text-[var(--espresso)] border-b-2 border-[var(--amber)] hover:text-[var(--barnred)]"
           >
             See the full collection
           </Link>
