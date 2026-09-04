@@ -40,7 +40,7 @@ export const posts: Post[] = [
     date: "2026-08-28",
     excerpt:
       "Main street in the late light, then a backyard fire until dark. A look at the day the first Full'Tucky footage got made.",
-    image: "/images/hero-poster.jpg",
+    image: "/images/dispatch/campfire.jpg",
     body: [
       "The first real Full'Tucky shoot happened in May, and it ran the way most good Kentucky evenings do — start downtown while the light is still good, end around a fire once it isn't.",
       "The afternoon half was simple: friends walking a main street in [TOWN], crossing at the light, storefronts and brick behind them, nobody doing anything special. Sun shirts in slate and stone, trucker hats in cream and sage. The kind of footage that only works if the people in it actually know each other, which is why we didn't hire anybody who didn't.",
@@ -56,7 +56,7 @@ export const posts: Post[] = [
     date: "2026-08-28",
     excerpt:
       "We didn't make this to fit in — we made it to stand out. Kentucky has a culture all its own, and we're not watering it down.",
-    image: "/images/lifestyle/downtown-walk.jpg",
+    image: "/images/dispatch/horses.jpg",
     body: [
       "We didn't make this to fit in — we made it to stand out. Kentucky has a culture all its own, and we're not watering it down. Our designs pull from what's real: the rolling hills, the horse barns, the Friday night lights, the sound of gravel under your boots.",
       "We keep things simple — premium fabrics, clean fits, bold detail. Because when you live Full'Tucky, you don't have to shout to be heard. You just have to wear it.",
@@ -71,7 +71,7 @@ export const posts: Post[] = [
     date: "2026-08-28",
     excerpt:
       "We wouldn't be Full'Tucky if we cut corners. Here's what actually goes into the gear, and why it costs what it costs.",
-    image: "/images/lifestyle/hat-back.jpg",
+    image: "/images/dispatch/rickhouse.jpg",
     body: [
       "We're a few bucks extra, but we wouldn't be Full'Tucky if we cut corners. That's why our tees are sourced from our native land — proudly made in the USA from 100% organic cotton.",
       "Soft, durable, and crafted the right way, this shirt isn't just clothing — it's a statement. You're wearing Kentucky pride, American craftsmanship, and a commitment to doing things better.",
@@ -86,7 +86,7 @@ export const posts: Post[] = [
     date: "2026-08-28",
     excerpt:
       "From farm fences and bonfires to bourbon pours, ball games, and city streets — Kentucky looks different to everybody. That's the point.",
-    image: "/images/lifestyle/statement-band.jpg",
+    image: "/images/dispatch/backroad.jpg",
     body: [
       "Full'Tucky isn't just a brand — it's a way of life. We celebrate the spirit of Kentucky in all its forms — from farm fences and bonfires, to bourbon pours, ball games, and city streets.",
       "Full'Tucky is about more than where you're from. It's about the pride, community, and everyday moments that make Kentucky home.",
